@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel = 'stylesheet' href = "{% static 'signup/css/create.css' %}">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src = "{% static 'signup/javascript/main.js' %}" type = 'text/javascript'></script>
+    <title>Create Workout</title>
+</head>
+<body>
+    <div id = 'main'>
+    <nav class="navbar navbar-expand-lg navbar-info bg-white">
+            <a href = '/'><img src = "{% static 'signup/images/logo_2.jpg' %}" class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a id = 'home' href = '/'><h3 class = 'title'>My Climbing</h3>
+                    <h3 class = 'title'>Pal</h3></a>
+                </li>
+                <li>
+                </li>
+                
+            </ul>
+                <div class="dropdown mr-5 my-dropdown">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        About
+                    </button>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Workouts
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="/create">Crete a Workout</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Community
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 ">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Nutrition
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 col-md-6 col-lg-2">
+                    <a id = 'login' class = 'btn' href = '#'>Login</a>
+                    <a id = 'signup' class = 'btn' href = '/signup'>Sign Up</a>
+                </div>
+            </div>
+            </nav>
+            <div class="jumbotron">
+                        <h1 class="display-4 col-lg-4">New Workout</h1>
+                        <form id = 'my-signup-form' class = 'form-signup col-lg-12 pt-2 pb-2'>
+                            <input id = 'set' type = 'hidden' name = 'set' value = '1'>
+                            {% csrf_token %}
+                            <div class = 'row'>
+                                <div class = 'col'>
+                                    <input id = 'name' class = 'form-control form-control-lg mb-4'type = 'text' name = 'first_name' placeholder = "Workout Name">
+                                    <label for = 'type'>Type:</label>
+                                    <select multiple class="form-control" id = 'type'>
+                                            <option>Hangboard</option>
+                                            <option>Power Endurance</option>
+                                            <option>Campus Board</option>
+                                            <option>Bouldering</option>
+                                            <option>ARC</option>
+                                            <option>Weight Training</option>
+                                    </select>
+                                    <label for = 'resistance'>Resistance type:</label>
+                                    <select multiple class="form-control" id = 'resistance'>
+                                            <option>Pounds</option>
+                                            <option>Time</option>
+                                            <option>V-Grades</option>
+                                            <option>YDS-Grades</option>
+                                    </select>
+                                    <label for = 'description'>Description: <span>(optional)</span></label>
+                                    <textarea id = 'description' name = 'description' class = 'form-control'></textarea>
+                                </div>
+
+
+                                <div class = 'col'>
+                                    <div id = 'insert-here'>
+                                    <h3 class = 'workout'>Set 1</h3>
+                                    <label for = 'reps'># of reps:</label>
+                                    <select multiple class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                    </select>
+                                    <div class = 'row'>
+                                        <label for = 'rest'>Rest</label>
+                                        <div class = 'col'>
+                                            <label class = 'sublabel' for = 'minutes'>Minutes:</label>
+                                            <select id = 'minutes' multiple class="form-control set">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                            </select>
+                                        </div>
+                                        <div class = 'col'>
+                                            <label class = 'sublabel' for = 'seconds'>Seconds:</label>
+                                            <select id = 'seconds' multiple class="form-control set">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                    <option>31</option>
+                                                    <option>32</option>
+                                                    <option>33</option>
+                                                    <option>34</option>
+                                                    <option>35</option>
+                                                    <option>36</option>
+                                                    <option>37</option>
+                                                    <option>38</option>
+                                                    <option>39</option>
+                                                    <option>40</option>
+                                                    <option>41</option>
+                                                    <option>42</option>
+                                                    <option>43</option>
+                                                    <option>44</option>
+                                                    <option>45</option>
+                                                    <option>46</option>
+                                                    <option>47</option>
+                                                    <option>48</option>
+                                                    <option>49</option>
+                                                    <option>50</option>
+                                                    <option>51</option>
+                                                    <option>52</option>
+                                                    <option>53</option>
+                                                    <option>54</option>
+                                                    <option>55</option>
+                                                    <option>56</option>
+                                                    <option>57</option>
+                                                    <option>58</option>
+                                                    <option>59</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <a href = '#set1' class = 'add'>+</a>
+                                </div>
+                                    
+                            </div>
+                            <a id = 'submit' class="btn btn-primary btn-lg signup col-md-12 col-lg-6 mx-auto" href="#" role="button">Create</a>
+                        </form>
+            </div>
+        <div class = 'search'>
+            <h3 id = 'search'>Search the Site</h3>
+            <form>
+                {% csrf_token %}
+                <input id = 'search-input'class = 'form-control' type = 'text' name = 'search' placeholder = 'Search...'>
+                <input id = 'form-submit' type = 'submit' value = ''>
+            </form>
+        </div>
+        <div class = 'contact'>
+            <div class = 'subscribe'>
+                <h4>Join Our Newsletter</h4>
+                <h6>Get the latest training and nutrition tips delivered to your inbox.</h6>
+                <a href = '#'>Subscribe Now</a>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Contact Us</h4>
+                <h6>Phone: 1-(800)-888-8888</h6>
+                <h6 href = '#'>email: info@myclimbingbuddy.com</h6>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Mission</h4>
+                <h6>To connect climbers from around the world in order to create and share information about training, nutrition, rehabilitation, and staying psyched!</h6>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div id = 'footer'>
+                <p class="footer navbar-brand col-lg-4">©2018</p>
+                <p class="footer navbar-brand col-lg-4">All Rights Reserved</p>
+                <p class="footer navbar-brand col-lg-4">About</p>
+                </div>
+        </nav>
+    </div>
+</body>
+</html>

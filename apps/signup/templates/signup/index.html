@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <link rel = 'stylesheet' href = "{% static 'signup/css/main.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src = "{% static 'signup/javascript/main.js' %}" type = 'text/javascript'></script>
+    <title>My Climbing Pal</title>
+</head>
+<body>
+    <div id = 'main'>
+    <nav class="navbar navbar-expand-lg navbar-info bg-white">
+            <a href = '/'><img src = "{% static 'signup/images/logo_2.jpg' %}" class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a id = 'home' href = '/'><h3 class = 'title'>My Climbing</h3>
+                    <h3 class = 'title'>Pal</h3></a>
+                </li>
+                <li>
+                </li>
+                
+            </ul>
+                <div class="dropdown mr-5 my-dropdown">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        About
+                    </button>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Workouts
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="/create">Create A Workout</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Community
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 ">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Nutrition
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 col-md-6 col-lg-2">
+                    <a id = 'login' class = 'btn' href = '#'>Login</a>
+                    <a id = 'signup' class = 'btn' href = '/signup'>Sign Up</a>
+                </div>
+            </div>
+            </nav>
+            <div class="jumbotron">
+                <h1 class="display-4 col-lg-5">Welcome to My Climbing Pal!</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p class="lead col-lg-5">My Climbing Pal allows you to easily track your training progress. Log, create, and share workouts with other users.</p>
+                <p class = 'lead col-lg-5'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+                <a class="btn btn-primary btn-lg signup col-md-12 col-lg-2" href="/signup" role="button">Sign Up!</a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div id = 'left' class = 'main-content col-lg-5 col-md-12 col-sm-12 ml-2'>
+                <h1 class = 'content-header'>Most Popular Categories</h1>
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <a href = '#'><img src= "{% static 'signup/images/hangboardopener.jpg' %}"alt="Los Angeles"></a>
+                        </div>
+                        <div class="carousel-item">
+                        <a href = '#'><img src= "{% static 'signup/images/endurance.jpg' %}"alt="Chicago"></a>
+                        </div>
+                        <div class="carousel-item">
+                        <a href = '#'><img src= "{% static 'signup/images/power.jpg' %}"alt="New York"></a>
+                        </div>
+                    </div>
+                    
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class = 'main-content col-lg-6 col-md-12 col-sm-12 ml-2'>
+                <h1 class = 'content-header'>Featured Tips For Today</h1>
+                <div id="demo2" class="carousel slide" data-ride="carousel">
+
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo2" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo2" data-slide-to="1"></li>
+                        <li data-target="#demo2" data-slide-to="2"></li>
+                    </ul>
+                    
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <a href = '#'><img src= "{% static 'signup/images/hangboardopener.jpg' %}"alt="Los Angeles"></a>
+                        </div>
+                        <div class="carousel-item">
+                        <a href = '#'><img src= "{% static 'signup/images/endurance.jpg' %}"alt="Chicago"></a>
+                        </div>
+                        <div class="carousel-item">
+                        <a href = '#'><img src= "{% static 'signup/images/power.jpg' %}"alt="New York"></a>
+                        </div>
+                    </div>
+                    
+                    <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo2" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                        
+                </div>
+            </div>
+
+        
+        <br>
+        <br>
+        <div class = 'search'>
+            <h3 id = 'search'>Search the Site</h3>
+            <form>
+                {% csrf_token %}
+                <input id = 'search-input'class = 'form-control' type = 'text' name = 'search' placeholder = 'Search...'>
+                <input id = 'form-submit' type = 'submit' value = ''>
+            </form>
+        </div>
+        <div class = 'contact'>
+            <div class = 'subscribe'>
+                <h4>Join Our Newsletter</h4>
+                <h6>Get the latest training and nutrition tips delivered to your inbox.</h6>
+                <a href = '#'>Subscribe Now</a>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Contact Us</h4>
+                <h6>Phone: 1-(800)-888-8888</h6>
+                <h6 href = '#'>email: info@myclimbingbuddy.com</h6>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Mission</h4>
+                <h6>To connect climbers from around the world in order to create and share information about training, nutrition, rehabilitation, and staying psyched!</h6>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div id = 'footer'>
+                <p class="footer navbar-brand col-lg-4">©2018</p>
+                <p class="footer navbar-brand col-lg-4">All Rights Reserved</p>
+                <p class="footer navbar-brand col-lg-4">About</p>
+                </div>
+        </nav>
+    </div>
+</body>
+</html>
