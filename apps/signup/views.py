@@ -115,6 +115,7 @@ def create_workout(request):
     if request.method == "POST":
         for key in request.POST.keys():
             keys.append(key)
-        print(keys)
+        user = User.objects.get(id = request.session['id'])
+        Workout.objects.create_workout(request.POST, keys, user)
         return redirect('/create')
     return redirect('/create')
