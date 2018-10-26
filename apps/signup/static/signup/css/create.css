@@ -102,14 +102,14 @@ nav .btn-info {
 }
 
 
-#login {
+#login, #logout {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#4776b9, #629bec);
     color: white;
 }
 
-#signup {
+#signup, #user {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#db6d00, #ffbc63);
@@ -126,25 +126,31 @@ nav .btn-info {
 }
 
 .jumbotron {
-    background-image: url("../images/background.jpg"), radial-gradient(#c5c5c5, #3b3b3b);
+    background-image: url(../images/background3.jpg), radial-gradient(#c5c5c5, #3b3b3b);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: 200%;
     width: 100% !important;
-    min-height: 1000px !important; 
+    min-height: 1000px !important;
     text-align: right;
     padding: 3rem 2rem;
+}
+
+.first-row {
+    margin-bottom: 100px;
 }
 
 #my-signup-form {
     background-color: rgba(0,0,0, 0.4);
     padding: 2% !important;
     box-sizing: border-box;
-    margin-left: 0% !important;
     border-radius: 5px;
 }
 
 .display-4{
-    color: black;
+    color: #ffffff;
+    font-weight: 400;
+    background-color: rgba(0,0,0, 0.4);
+    text-align: center;
 }
 
 label{
@@ -159,13 +165,15 @@ label{
     font-size: 15px;
 }
 
-.add {
+.add_set, .add_exercise {
     text-decoration: none !important;
     color: #ffffff;
     text-align: center !important;
-    margin-right: 48%;
+    margin-right: 2%;
+    margin-bottom: 95px !important;
     opacity: 0.5;
-    font-size: 46px;
+    font-size: 27px;
+    display: block;
 }
 
 

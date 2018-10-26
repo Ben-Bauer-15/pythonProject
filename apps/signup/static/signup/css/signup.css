@@ -95,14 +95,14 @@ nav .btn-info {
 }
 
 
-#login {
+#login, #logout {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#4776b9, #629bec);
     color: white;
 }
 
-#signup {
+#signup, #user {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#db6d00, #ffbc63);
@@ -119,13 +119,17 @@ nav .btn-info {
 }
 
 .jumbotron {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/gbradley.jpg");
     background-repeat: no-repeat;
     background-size: 100% auto;
     width: 100% !important;
     min-height: 1000px !important; 
     text-align: right;
     padding: 3rem 2rem;
+}
+
+.error {
+    color: red;
 }
 
 #my-signup-form {
@@ -138,6 +142,10 @@ nav .btn-info {
 
 .display-4{
     color: black;
+}
+
+.display-4 h2 {
+    font-size: 20px;
 }
 
 .lead {

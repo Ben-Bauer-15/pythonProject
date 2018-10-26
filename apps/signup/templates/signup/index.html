@@ -42,8 +42,8 @@
                     </button>
                     <div class="dropdown-menu col-lg-12 col-md-6">
                         <a class="dropdown-item" href="/create">Create A Workout</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
-                        <a class="dropdown-item" href="#">Link 3</a>
+                        <a class="dropdown-item" href="/record">Log a Workout</a>
+                        <a class="dropdown-item" href="/history">Your Activity</a>
                     </div>
                 </div>
                 <div class="dropdown mr-5">
@@ -51,7 +51,7 @@
                         Community
                     </button>
                     <div class="dropdown-menu col-lg-12 col-md-6">
-                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="/users">Find Other Users</a>
                         <a class="dropdown-item" href="#">Link 2</a>
                         <a class="dropdown-item" href="#">Link 3</a>
                     </div>
@@ -67,8 +67,13 @@
                     </div>
                 </div>
                 <div class="dropdown mr-5 col-md-6 col-lg-2">
-                    <a id = 'login' class = 'btn' href = '#'>Login</a>
+                    {% if not request.session.loggedin %}
+                    <a id = 'login' class = 'btn' href = '/login'>Login</a>
                     <a id = 'signup' class = 'btn' href = '/signup'>Sign Up</a>
+                    {% else %}
+                    <a id = 'user' class = 'btn' href = '/history'>Wecome, {{request.session.name}}!</a>
+                    <a id = 'logout' class = 'btn' href = '/logout'>Logout</a>
+                    {% endif %}
                 </div>
             </div>
             </nav>
@@ -80,8 +85,7 @@
                 <br>
                 <br>
                 <br>
-                <p class="lead col-lg-5">My Climbing Pal allows you to easily track your training progress. Log, create, and share workouts with other users.</p>
-                <p class = 'lead col-lg-5'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+                <p class="lead col-lg-5">My Climbing Pal allows you to easily track your training progress so can achieve all of your climbing goals. Log, create, and share workouts, training advice, and nutrition tips with other users.</p>
                 <a class="btn btn-primary btn-lg signup col-md-12 col-lg-2" href="/signup" role="button">Sign Up!</a>
             </div>
             <br>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel = 'stylesheet' href = "{% static 'signup/css/record.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src = "{% static 'signup/javascript/main.js' %}" type = 'text/javascript'></script>
+    <title>Create Workout</title>
+</head>
+<body>
+    <div id = 'main'>
+    <nav class="navbar navbar-expand-lg navbar-info bg-white">
+            <a href = '/'><img src = "{% static 'signup/images/logo_2.jpg' %}" class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a id = 'home' href = '/'><h3 class = 'title'>My Climbing</h3>
+                    <h3 class = 'title'>Pal</h3></a>
+                </li>
+                <li>
+                </li>
+                
+            </ul>
+                <div class="dropdown mr-5 my-dropdown">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        About
+                    </button>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Workouts
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="/create">Create a Workout</a>
+                        <a class="dropdown-item" href="/record">Log a Workout</a>
+                        <a class="dropdown-item" href="/history">Your Activity</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Community
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="/users">Find Other Users</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 ">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Nutrition
+                    </button>
+                    <div class="dropdown-menu col-lg-12 col-md-6">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown mr-5 col-md-6 col-lg-2">
+                    {% if not request.session.loggedin %}
+                    <a id = 'login' class = 'btn' href = '/login'>Login</a>
+                    <a id = 'signup' class = 'btn' href = '/signup'>Sign Up</a>
+                    {% else %}
+                    <a id = 'user' class = 'btn' href = '/history'>Wecome, {{request.session.name}}!</a>
+                    <a id = 'logout' class = 'btn' href = '/logout'>Logout</a>
+                    {% endif %}
+                </div>
+            </div>
+            </nav>
+            <div class="jumbotron">
+                        <h1 class="display-4 col-lg-4 ml-2 mb-4 mx-auto">Record a Workout</h1>
+                        <form id = 'my-signup-form' class = 'form-signup col-lg-10  mx-auto'>
+                            {% csrf_token %}
+                            <div class = 'row first-row'>
+                                <div class = 'col-lg-6 mx-auto'>
+                                    <label for = 'type'>Category:</label>
+                                    <select multiple class="form-control" id = 'type'>
+                                            <option>Hangboard</option>
+                                            <option>Power Endurance</option>
+                                            <option>Campus Board</option>
+                                            <option>Bouldering</option>
+                                            <option>ARC</option>
+                                            <option>Weight Training</option>
+                                    </select>
+                                    <h1 class = 'workout'>Hangboard</h1>
+                                </div>
+                            </div>
+
+
+                                <div class = 'col-lg-6 mx-auto'>
+                                    <h3 class = 'workout'>Set 1</h3>
+                                    <label for = 'reps'>Pounds: </label>
+                                    <input class = 'form-control set' type = 'text'>
+                                    <h3 class = 'workout'>Set 2</h3>
+                                    <label for = 'reps'>Pounds: </label>
+                                    <input class = 'form-control set' type = 'text'>
+                                    <h3 class = 'workout'>Set 3</h3>
+                                    <label for = 'reps'>Pounds: </label>
+                                    <input class = 'form-control set' type = 'text'>
+                                    <h3 class = 'workout'>Set 4</h3>
+                                    <label for = 'reps'>Pounds: </label>
+                                    <input class = 'form-control set' type = 'text'>
+                                    <h3 class = 'workout'>Set 5</h3>
+                                    <label for = 'reps'>Pounds: </label>
+                                    <input class = 'form-control set' type = 'text'>
+                                    <label for = 'description'>Notes: <span>(optional)</span></label>
+                                    <textarea id = 'description' name = 'description' class = 'form-control'></textarea>
+                                    <a id = 'submit' class="btn btn-primary btn-lg signup col-md-12 col-lg-6 mx-auto" href="#" role="button">Save</a>
+                                </div>
+                            </div>
+                        </form>
+            </div>
+        <div class = 'search'>
+            <h3 id = 'search'>Search the Site</h3>
+            <form>
+                {% csrf_token %}
+                <input id = 'search-input'class = 'form-control' type = 'text' name = 'search' placeholder = 'Search...'>
+                <input id = 'form-submit' type = 'submit' value = ''>
+            </form>
+        </div>
+        <div class = 'contact'>
+            <div class = 'subscribe'>
+                <h4>Join Our Newsletter</h4>
+                <h6>Get the latest training and nutrition tips delivered to your inbox.</h6>
+                <a href = '#'>Subscribe Now</a>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Contact Us</h4>
+                <h6>Phone: 1-(800)-888-8888</h6>
+                <h6 href = '#'>email: info@myclimbingbuddy.com</h6>
+            </div>
+            <div class = 'subscribe'>
+                <h4>Mission</h4>
+                <h6>To connect climbers from around the world in order to create and share information about training, nutrition, rehabilitation, and staying psyched!</h6>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div id = 'footer'>
+                <p class="footer navbar-brand col-lg-4">©2018</p>
+                <p class="footer navbar-brand col-lg-4">All Rights Reserved</p>
+                <p class="footer navbar-brand col-lg-4">About</p>
+                </div>
+        </nav>
+    </div>
+</body>
+</html>

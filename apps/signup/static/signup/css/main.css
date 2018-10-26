@@ -93,15 +93,14 @@ nav .btn-info {
     background-image: url('https://css-tricks.com/wp-content/uploads/2012/10/threelines.png');
 }
 
-
-#login {
+#login, #logout {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#4776b9, #629bec);
     color: white;
 }
 
-#signup {
+#signup, #user {
     display: block;
     margin-bottom: 5px;
     background-image: linear-gradient(#db6d00, #ffbc63);
@@ -118,7 +117,7 @@ nav .btn-info {
 }
 
 .jumbotron {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/gbradley.jpg") !important;
     background-repeat: no-repeat;
     background-size: 100% auto;
     width: 100% !important;
@@ -129,11 +128,14 @@ nav .btn-info {
 
 .display-4{
     color: black;
+    text-align: left;
 }
 
 .lead {
-    background-color: rgba(0,0,0, 0.4);
+    background-color: rgba(0,0,0, 0.6);
+    text-align: left;
     color: white;
+    border-radius: 5px;
 }
 
 .main-content {
