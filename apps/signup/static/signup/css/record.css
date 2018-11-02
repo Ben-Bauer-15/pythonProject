@@ -141,7 +141,13 @@ textarea {
 }
 
 .first-row {
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+}
+
+#my_workout_name {
+    border-radius: 6px;
+    margin-bottom: 80px;
+    background-color: rgba(0,0,0, 0.5);
 }
 
 #my-signup-form {

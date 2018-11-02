@@ -84,41 +84,24 @@
                             <thead>
                                 <tr>
                                 <th scope="col">Date</th>
-                                <th scope="col">Set(s)</th>
-                                <th scope="col">Resistance</th>
-                                <th scope="col">Notes</th>
+                                <th scope = 'col'>Exercise</th>
+                                <th scope="col">Set</th>
+                                <th scope="col">Performance</th>
                                 <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for exercise in workout.exercises.all %}
+                                {% for set in exercise.sets.all %}
                                 <tr>
-                                <th scope="row">4/2/2018</th>
-                                <td>1</td>
-                                <td>50 lbs</td>
-                                <td></td>
-                                <td><a class = 'view btn btn-primary' href = '/history'>Save</a></td>
+                                <th scope="row">{{workout.logged_at}}</th>
+                                <td>{{exercise.name}}</td>
+                                <td>{{set.set_number}}</td>
+                                <td><input class = 'input form-control workout_{{workout.id}}_exercise_{{exercise.exercise_number}}_set_{{set.set_number}}' type = 'text' value = {{set.result}}>{{exercise.resistance}}</td>
+                                <td><a id ='workout_{{workout.id}}_exercise_{{exercise.exercise_number}}_set_{{set.set_number}}' class = 'update view btn btn-primary' href = '#'>Save</a></td>
                                 </tr>
-                                <tr>
-                                <th scope="row"></th>
-                                <td>2</td>
-                                <td><input class = 'form-control' type = 'text' value = '50'>lbs</td>
-                                <td></td>
-                                <td><a class = 'view btn btn-primary' href = '/history'>Save</a></td>
-                                </tr>
-                                <tr>
-                                <th scope="row"></th>
-                                <td>3</td>
-                                <td>50 lbs</td>
-                                <td></td>
-                                <td><a class = 'view btn btn-primary' href = '/history'>Save</a></td>
-                                </tr>
-                                <tr>
-                                <th scope="row"></th>
-                                <td>4</td>
-                                <td>50 lbs</td>
-                                <td></td>
-                                <td><a class = 'view btn btn-primary' href = '/history'>Save</a></td>
-                                </tr>
+                                {% endfor %}
+                                {% endfor %}
                             </tbody>
                     </table>
                     <a id = 'submit' class="btn btn-primary btn-lg signup col-md-12 col-lg-2 mx-auto" href="/history" role="button">Go Back</a>

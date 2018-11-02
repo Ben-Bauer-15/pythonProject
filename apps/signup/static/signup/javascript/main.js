@@ -49,6 +49,40 @@ $(document).ready(function(){
         })
     })
 
+    // listener for the record a workout page to populate the template with the details for a particular 
+    // workout that a user has created
+    $('.workout-select').click(function(){
+        var data = $('#my-record-workout-form').serialize()
+        var url = '/find_workout'
+        var insert_position = $(this)
+
+        $.ajax({
+            url : url,
+            data : data,
+            method : "POST"
+        })
+        .done(function(response){
+            $('#my_workout_details').html(response)
+        })
+    })
+
+    //listener to delete a record
+    $(document).on('click', '.delete', function(){
+        var url = $(this).attr('id')
+        var data = $(this).attr('id')
+        $.ajax({
+            url : url,
+            data : data,
+            method : 'GET'
+        })
+        .done(function(response){
+            $('tbody').html(response)
+        })
+        return false;
+    })
+
+
+
 
     // ajax signup form validation
     $('#first_name, #last_name, #email, #password, #confirm_password').keyup(function(){
@@ -86,6 +120,27 @@ $(document).ready(function(){
     // event listener to submit the create workout form
     $('#create_workout').click(function(){
         $('#create-form').submit();
+    })
+
+
+    $(document).on('click', '.update', function(){
+        var url = '/update/' + $(this).attr('id')
+        var data = $('.' + $(this).attr('id')).val()
+
+        console.log(data)
+        $.ajax({
+            url : url,
+            data : data,
+            method : "GET"
+        })
+        .done(function(){
+
+        })
+    })
+
+    // event listener to submit the log workout form
+    $(document).on('click', '#submit-log-workout', function(){
+        $('#my-record-workout-form').submit();
     })
 
 

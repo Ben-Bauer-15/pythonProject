@@ -1,0 +1,12 @@
+<h1 class = 'workout col-lg-6 mx-auto' id = 'my_workout_name'>{{workout.name}}</h1>
+{% for exercise in workout.exercises.all %}
+<h1 class = 'workout exercise-name'>{{exercise.name}}</h1>
+{% for set in exercise.sets.all %}
+<h3 class = 'workout'>Set {{set.set_number}}</h3>
+<label for = 'reps'>{{exercise.resistance}}: </label>
+<input name = 'exercise_{{exercise.exercise_number}}_set_{{set.set_number}}_result' class = 'form-control set' type = 'text'>
+{% endfor %}
+{% endfor %}
+<label for = 'notes'> Notes: <span>(optional)</span></label>
+<textarea id = 'notes' name = 'notes' class = 'form-control'></textarea>
+<a id = 'submit-log-workout' class="btn btn-primary btn-lg signup col-md-12 col-lg-6 mx-auto" href="#" role="button">Save</a>

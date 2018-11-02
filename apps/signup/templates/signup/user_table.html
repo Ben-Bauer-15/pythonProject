@@ -92,31 +92,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for key, value in contributions.items %}
+                                {% if key != me %}
                                 <tr>
-                                <th scope="row">Jane Doe</th>
-                                <td>5</td>
-                                <td>"Felt strong!"</td>
-                                <td><a class = 'view btn btn-primary' href = 'user/1'>View</a><a class = 'view btn btn-primary' href = '/view/1'>Follow</a></td>
+                                <th scope="row">{{key.first_name}} {{key.last_name}}</th>
+                                <td>{{value}}</td>
+                                <td>{{key.bio}}</td>
+                                <td><a class = 'view btn btn-primary' href = 'user/{{key.id}}'>View</a><a class = 'view btn btn-primary' href = '#'>Follow</a></td>
                                 </tr>
-                                <tr>
-                                <th scope="row">Jane Doe</th>
-                                <td>5</td>
-                                <td>"Felt strong!"</td>
-                                <td><a class = 'view btn btn-primary' href = 'user/1'>View</a><a class = 'view btn btn-primary' href = '/view/1'>Follow</a></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Jane Doe</th>
-                                <td>5</td>
-                                <td>"Felt strong! 5 was a little rough but I tried really hard and finished it. Looking forward to next week and my upcoming trip."</td>
-                                <td><a class = 'view btn btn-primary' href = 'user/1'>View</a><a class = 'view btn btn-primary' href = '/view/1'>Follow</a></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Jane Doe</th>
-                                <td>5</td>
-                                <td>"Felt strong!"</td>
-                                <td><a class = 'view btn btn-primary' href = 'user/1'>View</a><a class = 'view btn btn-primary' href = '/view/1'>Follow</a></td>
-                                </tr>
-                                
+                                {% endif %}
+                                {% endfor %}
                             </tbody>
                         </table>
                 </div>

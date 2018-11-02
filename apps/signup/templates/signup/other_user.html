@@ -79,21 +79,38 @@
             </nav>
             <div class="jumbotron">
                 <div class = 'row'>
-                    <h1 class="display-4 col-lg-3">Jane Doe</h1>
+                    <h1 class="display-4 col-lg-3">{{user.first_name}}  {{user.last_name}}</h1>
                 </div>
                 <div class = 'row'>
                     <div class = "ml-5 mb-5 px-5 display-4">
                         <h5 class = ' bio '>Bio</h5>
-                        <h6>"I love climbing!"</h6>
+                        {% if user.bio != '' %}
+                        <h6>{{user.bio}}</h6>
+                        {% else %}
+                        <h6>Nothing to show yet</h6>
+                        {% endif %}
                     </div>
                     <div class = "ml-5 mb-5 px-5 display-4">
                         <h5 class = ' bio'>Workouts</h5>
+
+                        {% if workouts == 0 %}
                         <h6>Nothing to show yet</h6>
+                        {% else %}
+                        {% for workout in user.workouts.all %}
+                        <a class = 'workout' href = '/log_friend_workout/{{workout.id}}'><h6>{{workout.name}}</h6></a>
+                        {% endfor %}
+                        {% endif %}
 
                     </div>
                     <div class = "ml-5 mb-5 px-5 display-4">
                         <h5 class = ' bio'>Recent Ticks</h5>
+                        {% if routes %}
+                        {% for route in routes %}
+                        <h6><a class = 'workout' href = {{route.url}}>{{route.name}}, {{route.rating}}</a></h6>
+                        {% endfor %}
+                        {% else %}
                         <h6>Nothing to show yet</h6>
+                        {% endif %}
 
                     </div>
                     <div class = "ml-5 mb-5 px-5 display-4">

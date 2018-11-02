@@ -79,43 +79,40 @@
             </nav>
             <div class="jumbotron">
                         <h1 class="display-4 col-lg-4 ml-2 mb-4 mx-auto">Record a Workout</h1>
-                        <form id = 'my-signup-form' class = 'form-signup col-lg-10  mx-auto'>
+                        <form action = '/record_workout' method = "POST" id = 'my-record-workout-form' class = 'form-signup col-lg-10  mx-auto'>
                             {% csrf_token %}
                             <div class = 'row first-row'>
                                 <div class = 'col-lg-6 mx-auto'>
-                                    <label for = 'type'>Category:</label>
-                                    <select multiple class="form-control" id = 'type'>
-                                            <option>Hangboard</option>
-                                            <option>Power Endurance</option>
-                                            <option>Campus Board</option>
-                                            <option>Bouldering</option>
-                                            <option>ARC</option>
-                                            <option>Weight Training</option>
+                                    {% if workouts %}
+                                    <label for = 'type'>Select From Your Workouts:</label>
+                                    {% if not friend_workout %}
+                                    <select name = 'workout_name' multiple class="form-control" id = 'type'>
+                                    {% endif %}
+                                        {% for workout in workouts %}
+                                            <option class = 'workout-select'>{{workout.name}}</option>
+                                        {% endfor %}
                                     </select>
-                                    <h1 class = 'workout'>Hangboard</h1>
+                                    {% endif %}
                                 </div>
                             </div>
-
-
-                                <div class = 'col-lg-6 mx-auto'>
-                                    <h3 class = 'workout'>Set 1</h3>
-                                    <label for = 'reps'>Pounds: </label>
-                                    <input class = 'form-control set' type = 'text'>
-                                    <h3 class = 'workout'>Set 2</h3>
-                                    <label for = 'reps'>Pounds: </label>
-                                    <input class = 'form-control set' type = 'text'>
-                                    <h3 class = 'workout'>Set 3</h3>
-                                    <label for = 'reps'>Pounds: </label>
-                                    <input class = 'form-control set' type = 'text'>
-                                    <h3 class = 'workout'>Set 4</h3>
-                                    <label for = 'reps'>Pounds: </label>
-                                    <input class = 'form-control set' type = 'text'>
-                                    <h3 class = 'workout'>Set 5</h3>
-                                    <label for = 'reps'>Pounds: </label>
-                                    <input class = 'form-control set' type = 'text'>
-                                    <label for = 'description'>Notes: <span>(optional)</span></label>
-                                    <textarea id = 'description' name = 'description' class = 'form-control'></textarea>
-                                    <a id = 'submit' class="btn btn-primary btn-lg signup col-md-12 col-lg-6 mx-auto" href="#" role="button">Save</a>
+                            
+                            
+                            <div id = 'my_workout_details' class = 'col-lg-6 mx-auto'>
+                                {% if friend_workout %}
+                                <h1 class = 'workout col-lg-6 mx-auto' id = 'my_workout_name'>{{friend_workout.name}}</h1>
+                                    <input type = 'hidden' name = 'workout_name' value = {{friend_workout.name}}>
+                                    {% for exercise in friend_workout.exercises.all %}
+                                    <h1 class = 'workout exercise-name'>{{exercise.name}}</h1>
+                                    {% for set in exercise.sets.all %}
+                                    <h3 class = 'workout'>Set {{set.set_number}}</h3>
+                                    <label for = 'reps'>{{exercise.resistance}}: </label>
+                                    <input name = 'exercise_{{exercise.exercise_number}}_set_{{set.set_number}}_result' class = 'form-control set' type = 'text'>
+                                    {% endfor %}
+                                    {% endfor %}
+                                    <label for = 'notes'> Notes: <span>(optional)</span></label>
+                                    <textarea id = 'notes' name = 'notes' class = 'form-control'></textarea>
+                                    <a id = 'submit-log-workout' class="btn btn-primary btn-lg signup col-md-12 col-lg-6 mx-auto" href="#" role="button">Save</a>
+                                {% endif %}
                                 </div>
                             </div>
                         </form>

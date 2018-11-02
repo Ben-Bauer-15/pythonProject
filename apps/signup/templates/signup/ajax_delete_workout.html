@@ -1,0 +1,20 @@
+{% if workouts %}
+{% for workout in workouts %}
+<tr>
+<th scope="row">{{workout.logged_at}}</th>
+
+<td>
+    {% for exercise in workout.exercises.all %}
+    {{exercise.name}}
+    {% endfor %}
+</td>
+
+<td>
+    {% if workout.notes != '' %}
+    "{{workout.notes}}"
+    {% endif %}
+</td>
+<td><a class = 'view btn btn-primary' href = '/view/{{workout.id}}'>View</a><a class = 'delete btn btn-primary' href = 'delete/{{workout.id}}'>Delete</a></td>
+</tr>
+{% endfor %}
+{% endif %}
